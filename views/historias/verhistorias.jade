@@ -1,0 +1,28 @@
+extends ../templates/default
+
+block content
+  include ../templates/historias/navhistoriasverhistorias
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','form-head','centered'])= 'Lista de Historias'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-historias')
+        thead
+          tr
+            th= 'ID'
+            th= 'Fecha Consulta'
+            th= 'Diagnostico'
+            th= 'Medico'
+            th= 'Acciones'
+        tbody
+          each historia in verhistorias
+            tr
+              td(id='id')= historia.id
+              td= historia.fecha_confirmada
+              td= historia.diagnostico
+              td= historia.apaterno
+              td
+              
+                a(class=['ui button basic icon'] href='/mirarhistorial/'+historia.id data-inverted='' data-tooltip='Ver' data-position='top center')
+                  i(class=['unhide icon'])

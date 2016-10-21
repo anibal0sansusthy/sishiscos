@@ -1,0 +1,32 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/medico/navmedicoop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+      
+      h2(class=['ui', 'header','centered', 'blue', 'dividing','form-head'])= 'Crear Medico'
+
+      div(class='form-nuevomedico')
+        form(class=['ui', 'form'] action='/crearmedico' method='post')
+          div(class=['ui', 'field'])
+            label(for='matriculapersona')= 'Matricula '
+            select(id="matriculaId" name = "dropdownmatricula")
+          div(class=['ui', 'field'])
+            label(for='especialidadId')= 'Especialidad'
+            select(id="especialidadId" name = "dropdownespecialidad")
+              
+          button(class=['ui', 'button', 'large', 'blue'])= 'Crear Medico'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Medico registrado'
+          p= info
+
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/cargarEspecialidad.js')
+  script(src='/javascripts/cargarMatricula.js')

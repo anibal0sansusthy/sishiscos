@@ -1,0 +1,40 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/historias/navhistoriasop1
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','form-head','centered'])= 'Datos Historial'
+
+      div(class='form-nuevoproducto')
+        form(class=['ui', 'form'] action='' method='post')
+          div(class=['ui', 'four', 'fields'])
+            div(class=['ui', 'field'])
+              label(for='peso')= 'Peso'
+              label(for='peso')=value=verhistorias[0].peso
+            div(class=['ui', 'field'])
+              label(for='talla')= 'Talla'
+              label(for= 'talla')=verhistorias[0].talla
+            div(class=['ui', 'field'])
+              label(for='temperatura')= 'Temperatura'
+              label(for= 'temperatura')=verhistorias[0].temperatura
+            div(class=['ui', 'field'])
+              label(for='precionarterial')= 'Precion Arterial'
+              label(for= 'precionarterial')=verhistorias[0].presion_arterial   
+          div(class=['ui', 'field'])
+            label(for='sintoma')= 'Sintoma'
+            label(for= 'sintoma')=verhistorias[0].sintomas 
+          div(class=['ui','field'])
+            label(for='diagnostico')= 'Diagnostico'
+            label(for= 'diagnostico')=verhistorias[0].diagnostico  
+          div(class=['ui', 'field'])
+            label(for='tratamiento')= 'Tratamiento'
+            label(for= 'tratamiento')=verhistorias[0].tratamiento  
+          
+            input(type= 'hidden' name='id_historial' value=verhistorias[0].id)
+            input(type= 'hidden' name='reserva_id' value=verhistorias[0].reserva_id)
+            input(type= 'hidden' name='enfermedad_id' value=verhistorias[0].enfermedad_id)
+  script(src='/javascripts/validacion.js')

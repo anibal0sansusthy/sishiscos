@@ -1,0 +1,41 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/reportes/navreportesop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'TABLA DE ATENDIDOS POR TIPO DE ASEGURADO'
+      div(class=['ui','field'])
+        label(for='fechainicio')= 'Fecha Inicio: '
+        label(for='fechainicio')= value=fecha1
+      div(class=['ui','field'])
+        label(for='fechafin')= 'Fecha Fin: '
+        label(for='fechafin')= value=fecha2
+      div(class=['ui','field'])
+        label(for='total ')= 'Total Atendidos: '
+        label(for='total')= value=total
+      table(class=['ui', 'table', 'celled'] id='tbl-edadesunidades')
+        thead
+          tr
+            th= 'Tipo Asegurado'
+            th= 'Cantidad'
+            th= 'Porecentaje %'
+            
+            
+        tbody
+         
+            tr
+              td= 'ACTIVO'
+              td= valor.c1
+              td= valor.p1
+            tr
+              td= 'PASIVO'
+              td= valor.c2
+              td= valor.p2 
+     
+              
+           
+                

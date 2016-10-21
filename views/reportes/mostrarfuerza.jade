@@ -1,0 +1,44 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/reportes/navreportesop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Lista de Atendidos por Fuerza en Cantidad'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-productos')
+        thead
+          tr
+            th= 'Ejercito'
+            th= 'Armada'
+            th= 'FAB'
+            th= 'Total'
+            
+        tbody
+          
+            tr
+              td= general.ejto
+              td= general.armada
+              td= general.fab
+              td= general.total
+              
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'Lista de Atendidos por Fuerza en Porcentaje'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-productos')
+        thead
+          tr
+            th= 'Ejercito %'
+            th= 'Armada %'
+            th= 'FAB %'
+            
+            
+        tbody
+          
+            tr
+              td= general.porcientoejto
+              td= general.porcientoarmada
+              td= general.porcientofab
+              

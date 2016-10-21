@@ -1,0 +1,12 @@
+div(class=['ui','menu'])
+  a(class='item' href='/')= 'Puro Codigo'
+  div(class=['right', 'menu'])
+    div(class='item')
+      if !isAuthenticated
+        a(class='item' href='http://localhost:3000/auth/signup')= 'Registrarse'
+        a(class='item' href='http://localhost:3000/auth/signin')= 'Iniciar sesion'
+      if isAuthenticated
+        div(class='item')= user.nombre
+        a(class='item' href='http://localhost:3000/users/panel')= 'Perfil'
+        a(class='item' href='http://localhost:3000/auth/logout')= 'Cerrar Sesion'
+         

@@ -1,0 +1,41 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/persona/navpersonaop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Lista de Personas'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-personas')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Paterno'
+            th= 'Materno'
+            th= 'CI'
+            th= 'Fecha Nacimiento'
+            th= 'Matricula'
+            th= 'Acciones'
+            
+        tbody
+          each persona in personas
+            tr
+              td(id='id')= persona.id_persona
+              td= persona.nombre
+              td= persona.apaterno
+              td= persona.amaterno
+              td= persona.ci
+              td= persona.fecha_nac
+              td= persona.matricula
+              
+              td
+                a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['remove circle icon'])
+                a(class=['ui button basic icon'] href='http://localhost:3000/modificarpersona/'+persona.id_persona data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/personas.js')

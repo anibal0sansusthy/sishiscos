@@ -1,0 +1,30 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/medico/navmedicoop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Modificar Medico'
+
+      div(class='form-nuevomedico')
+        form(class=['ui', 'form'] action='/editarmedico' method='post')
+          div(class=['ui','disabled', 'field'])
+            label(for='apaternopersona')= 'Ap Paterno'
+            input(type= 'text' name='apaternopersona' placeholder='Ap Paterno' value=medico[0].apaterno)
+          div(class=['ui','disabled','field'])
+            label(for='amaternopersona')= 'Ap Materno'
+            input(type= 'text' name='amaternopersona' placeholder='Ap Materno' value=medico[0].amaterno)
+          div(class=['ui', 'field'])
+            label(for='nombreespecialidad')= 'Especialidad'
+            select(id="especialidadId" name = "dropdown")
+          div(class=['ui', 'field'])
+            input(type= 'hidden' name='id_medico' value=medico[0].id_medico)
+          button(class=['ui', 'button', 'large', 'blue'])= 'Modificar Medico'
+          div(class=['ui', 'message', 'error'])
+
+      
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/cargarEspecialidad.js')

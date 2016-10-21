@@ -1,0 +1,17 @@
+extends ../templates/default
+block content
+  include ../templates/nav
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'Iniciar Sesión'
+      div(class='form-iniciosesion')
+        form(class=['ui', 'form'] action='http://localhost:3000/auth/signin' method='post')
+          div(class=['ui', 'field'])
+            label(for='email')= 'Nombre'
+            input(type= 'text' name='username' placeholder='Nombre' onkeyup="javascript:this.value=this.value.toUpperCase();" )
+          div(class=['ui', 'field'])
+            label(for='password')= 'Password'
+            input(type= 'password' name='password' placeholder='Password'  )
+          button(class=['ui', 'button', 'basic', 'black'])= 'Registrarme'
+  if authmessage.length > 0
+    div(class='alert alert-danger' role='alert')= authmessage

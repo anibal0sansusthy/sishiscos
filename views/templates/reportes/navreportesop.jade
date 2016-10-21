@@ -1,0 +1,11 @@
+div(class=['ui', 'pointing','blue','inverted', 'menu'])
+  a(class='item' href='/login')= 'Inicio'
+  a(class='item' href='/indexreportetabla')= 'Reportes Tablas'
+  a(class='item' href='/indexreportegrafico')= 'Reportes Graficos' 
+  div(class=['right', 'menu'])
+      div(class='item')
+        if isAuthenticated
+          div(class='item')= user.nombre 
+          //a(class='item' href='http://localhost:3000/users/panel')= 'Modificar'
+          a(class='item' href='/auth/logout')= 'Cerrar Sesion'
+  

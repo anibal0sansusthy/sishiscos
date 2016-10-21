@@ -1,0 +1,32 @@
+extends templates/default
+
+block content
+  
+  
+  div(class=['ui','one','column','center','aligned','grid','banner'])
+    div(class=['column','six','wide','form-holder'])
+  
+      h3(class=['ui', 'header','form-head','blue'])= 'HOSPITAL MILITAR Nro 1 COCHABAMBA'
+        h3(class=['ui', 'header','form-head', 'blue'])= 'SISTEMA DE GESTIÓN DE HISTORIAS CLINICAS DE CONSULTA EXTERNA'
+          div(class=['ui', 'container', 'grid', 'stackable'])
+            div(class=['sixteen', 'wide', 'column'])
+
+              h2(class=['ui', 'header','form-head', 'black', 'dividing'])= 'INICIAR SESIÓN'
+              img.ui.centered.circular.small.image(src='/images/logo.jpg')
+              div(class='form-iniciosesion')
+              
+                form(class=['ui', 'form'] action='/auth/signin' method='post')
+                  div(class=['ui', 'field'])
+                    label(for='email')= 'Cuenta'
+                    input(type= 'text' name='username' placeholder='Cuenta' onkeyup="javascript:this.value=this.value.toUpperCase();")
+                  div(class=['ui', 'field'])
+                    label(for='password')= 'Contraseña'
+                    input(type= 'password' name='password' placeholder='Contraseña' onkeyup="javascript:this.value=this.value.toUpperCase();" )
+                  button(class=['ui', 'button','large','blue'])= 'Ingresar'
+                  div(class=['ui', 'message', 'error'])
+                    
+  //if authmessage.length > 0
+  div(class=['ui', 'message', 'success'])= authmessage
+    i(class=['close', 'icon'])
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/bloquear.js')

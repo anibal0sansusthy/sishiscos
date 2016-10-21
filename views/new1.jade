@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/semantic/semantic.css')
+    script(src='/javascripts/jquery-3.0.0.js')
+    script(src='/semantic/semantic.js')
+    script(src='/javascripts/main.js')
+  body
+    .ui.large.menu
+      a.active.item
+        | Home
+      a.item
+        | Messages
+      .right.menu
+        .ui.dropdown.item
+          | Language 
+          i.dropdown.icon
+            .menu
+              a.item English
+              a.item Russian
+              a.item Spanish
+        .item
+          .ui.primary.button Sign Up

@@ -1,0 +1,15 @@
+div(class=['ui','small','blue','inverted', 'menu'])
+  a(class='item' href='/')= 'Inicio'
+  a(class='item' href='/indexcargo')= 'Cargo'
+  a(class='item' href='/indexpersona')= 'Persona' 
+  a(class='item' href='/indexempleado')= 'Empleado'
+  a(class='item' href='/indexusuario')= 'Usuario' 
+  a(class='item' href='/indexespecialidad')= 'Especialidades'
+  a(class='item' href='/indexmedico')= 'Medico'
+  div(class=['right', 'menu'])
+      div(class='item')
+        if isAuthenticated
+          div(class='item')= user.nombre 
+          //a(class='item' href='http://localhost:3000/users/panel')= 'Modificar'
+          a(class='item' href='/auth/logout')= 'Cerrar Sesion'
+  

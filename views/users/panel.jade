@@ -1,0 +1,19 @@
+extends ../templates/default
+
+block content
+  include ../templates/nav
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'Verificar usuario'
+      div(class='form-iniciosesion')
+        form(class=['ui', 'form'] action='http://localhost:3000/auth/signup' method='post')
+          div(class=['ui', 'field'])
+            label(for='nombre')= 'Nombre'
+            input(type= 'text' name='nombre' id='nombre' placeholder='Nombre' )
+          div(class=['ui', 'field'])
+            label(for='password')= 'Password'
+            input(type= 'password' name='password' id='password' placeholder='Password')
+          div(class=['ui', 'field'])
+            label(for='id_e')= 'Password'
+            input(type= 'number' step='any' name='id_e' id='id_e' placeholder='id_empleado'  )
+          button(class=['ui', 'button', 'basic', 'black'])= 'Registrarme'

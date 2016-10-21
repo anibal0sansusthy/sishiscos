@@ -1,0 +1,32 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/especialidad/navespecialidadop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Lista de Especialidades'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-especialidad')
+        thead
+          tr
+            th= 'ID'
+            th= 'nombre'
+            th= 'descripcion'
+            th= 'Acciones'
+            
+        tbody
+          each especialidades in especialidad
+            tr
+              td(id='id')= especialidades.id_especialidad
+              td= especialidades.nombre
+              td= especialidades.descripcion
+              td
+                a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['remove circle icon'])
+                a(class=['ui button basic icon'] href='/modificarespecialidad/'+especialidades.id_especialidad data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/especialidad.js')

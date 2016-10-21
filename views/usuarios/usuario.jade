@@ -1,0 +1,29 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/usuario/navusuarioop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Lista de Usuarios'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-usuarios')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre Usuario'
+            th= 'Acciones'
+            
+        tbody
+          each usuario in usuarios
+            tr
+              td(id='id')= usuario.id_usuario
+              td= usuario.nombreusuario
+              td
+                a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['remove circle icon'])
+                
+
+  script(src='/javascripts/usuarios.js')

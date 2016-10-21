@@ -1,0 +1,10 @@
+div(class=['ui', 'pointing','blue','inverted', 'menu'])
+  a(class='item' href='/login')= 'Inicio'
+  a(class='item' href='/verificar')= 'Ver Consultas'
+  a(class='item' href='/indexantecedente')= 'Antecedentes'
+  div(class=['right', 'menu'])
+      div(class='item')
+        if isAuthenticated
+          div(class='item')= user.nombre 
+          //a(class='item' href='/users/panel')= 'Modificar'
+          a(class='item' href='/auth/logout')= 'Cerrar Sesion'

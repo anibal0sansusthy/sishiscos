@@ -1,0 +1,34 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/empleado/navempleadoop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Modificar Empleado'
+
+      div(class='form-nuevocargo')
+        form(class=['ui', 'form'] action='/editarempleado' method='post')
+          div(class=['ui','disabled', 'field'])
+            label(for='nombrepersona')= 'Nombre'
+            input(type= 'text' name='nombrepersona' placeholder='Nombre' value=persona[0].nombre)
+          div(class=['ui','disabled', 'field'])
+            label(for='apaternopersona')= 'Ap Paterno'
+            input(type= 'text' name='apaternopersona' placeholder='Ap Paterno' value=persona[0].apaterno)
+          div(class=['ui','disabled', 'field'])
+            label(for='amaternopersona')= 'Ap Materno'
+            input(type= 'text' name='amaternopersona' placeholder='Ap Materno' value=persona[0].amaterno)
+          div(class=['ui', 'field'])
+            label(for='cargoempleado')= 'Cargo'
+            select(id="cargoId" name = "dropdown")
+          
+          div(class=['ui', 'field'])
+            input(type= 'hidden' name='id_empleado' value=empleado[0].id_empleado)
+          button(class=['ui', 'button', 'large', 'blue'])= 'Modificar Persona'
+          div(class=['ui', 'message', 'error'])
+
+      
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/cargarCargo.js')

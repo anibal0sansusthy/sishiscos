@@ -1,0 +1,34 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/cargo/navcargoop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','form-head'])= 'Lista de cargos'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-cargos')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'responsabilidad'
+            
+            th= 'Acciones'
+            
+        tbody
+          each cargo in cargos
+            tr
+              td(id='id')= cargo.id
+              td= cargo.nombre
+              td= cargo.responsabilidad
+              
+              td
+                a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['remove circle icon'])
+                a(class=['ui button basic icon'] href='/modificar/'+cargo.id data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/cargos.js')

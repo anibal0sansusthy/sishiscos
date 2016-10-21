@@ -1,0 +1,47 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/antecedente/navantecedenteop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','form-head','centered'])= 'Datos Antecedentes de Historial'
+
+      div(class='form-nuevoproducto')
+        form(class=['ui', 'form'] action='' method='post')
+          
+          div(class=['ui', 'field'])
+            h2(class=['ui', 'header', 'blue', 'dividing','form-head','centered'])= 'Antecedentes Familiares'
+            label(for='diabetes')= 'Antecedentes familiar de enfermos con diabetes'
+            label(for='diabetes')=value=antecedente[0].diabetes
+          div(class=['ui', 'field'])
+            label(for='obecidad')= 'Antecedentes familiar de enfermos con obecidad'
+            label(for= 'obecidad')=antecedente[0].obecidad
+          div(class=['ui', 'field'])
+            label(for='enfcardiacos')= 'Antecedentes familiar de enfermedades cardiacas'
+            label(for= 'enfcardiacos')=antecedente[0].enf_cardiaca
+          div(class=['ui', 'field'])
+            label(for='epilepcia')= 'Antecedentes familiar de la enfermedad epilepcia'
+            label(for= 'epilepcia')=antecedente[0].epilepcia   
+          div(class=['ui', 'field'])
+            h2(class=['ui', 'header', 'blue', 'dividing','form-head','centered'])= 'Antecedentes No Patorlogicos'
+            label(for='alergias')= 'Alergias'
+            label(for= 'alergias')=antecedente[0].alergias 
+          div(class=['ui','field'])
+            label(for='tabaquismo')= 'Consumo del tabaco'
+            label(for= 'tabaquismo')=antecedente[0].tabaquismo  
+          div(class=['ui', 'field'])
+            label(for='alcoholismo')= 'Consumo de alcohol'
+            label(for= 'alcoholismo')=antecedente[0].alcoholismo  
+          div(class=['ui', 'field'])
+            h2(class=['ui', 'header', 'blue', 'dividing','form-head','centered'])= 'Antecedentes Patologicos'
+            label(for='fracturas')= 'Antecedentes de Fracturas'
+            label(for= 'fracturas')=antecedente[0].fracturas  
+           div(class=['ui', 'field'])
+            label(for='operaciones')= 'Antecedentes de operaciones'
+            label(for= 'operaciones')=antecedente[0].operaciones  
+          div(class=['ui', 'field'])
+            label(for='hospitalizaciones')= 'Antecedentes de hospitalizaciones'
+            label(for= 'hospitalizaciones')=antecedente[0].hospitalizaciones  

@@ -1,0 +1,22 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/historias/navhistoriasverificar
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','form-holder'])= 'Consultas Programadas'
+
+      div(class='form-iniciohistoria')
+        form(class=['ui', 'form'] action='/iniciohistoria' method='post')
+          div(class=['ui', 'field'])
+            label(for='medicoMatricula')= 'Nro Matricula'
+            input(type= 'text' name='medicoMatricula' placeholder='Nro matricula')
+          div(class=['ui', 'two', 'fields'])
+            div(class=['ui', 'field'])
+          button(class=['ui', 'button', 'large', 'blue'])= 'Buscar'
+          div(class=['ui', 'message', 'error'])
+      
+  script(src='/javascripts/validacion.js')

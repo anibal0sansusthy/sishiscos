@@ -1,0 +1,52 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/reportes/navreportesop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'TABLA DE ATENDIDOS POR EDADES EN UNIDADES'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-edadesunidades')
+        thead
+          tr
+            th= 'Fecha Inicio'
+            th= 'Fecha Fin'
+            th= 'Niño'
+            th= 'Adulto'
+            th= 'Mayor'
+            th= 'Total Atendidos'
+            
+        tbody
+         
+            tr
+              td= reporteedades.fechainicio
+              td= reporteedades.fechafin
+              td= reporteedades.nino
+              td= reporteedades.adulto
+              td= reporteedades.mayor
+              td= reporteedades.total
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'TABLA DE ATENDIDOS POR EDADES EN PORCENTAJE'
+      table(class=['ui', 'table', 'celled'] id='tbl-productos')
+        thead
+          tr
+            th= 'Fecha Inicio'
+            th= 'Fecha Fin'
+            th= 'Niño (%)'
+            th= 'Adulto (%)'
+            th= 'Mayor (%)'
+           
+            
+        tbody
+         
+            tr
+              td= reporteedades.fechainicio
+              td= reporteedades.fechafin
+              td= reporteedades.porcentajenino
+              td= reporteedades.porcentajeadulto
+              td= reporteedades.porcentajemayor
+              
+           
+                

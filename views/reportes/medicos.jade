@@ -1,0 +1,22 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/reportes/navresportes
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Reporte de Medicos totales'
+
+      div(class='form-nuevocargo')
+        form(class=['ui', 'form'] action='http://localhost:3000/crearmedicototal' method='post')
+          div(class=['ui', 'field'])
+            label(for='fechainicio')= 'Fecha Inicio'
+            input(type= 'date' name='fechainicio' placeholder='Fecha inicio')
+          div(class=['ui', 'field'])
+            label(for='fechafin')= 'Fecha Fin'
+            input(type= 'date' name='fechafin' placeholder='Fecha fin')
+          button(class=['ui', 'button', 'large', 'blue'])= 'Generar'
+         
+   

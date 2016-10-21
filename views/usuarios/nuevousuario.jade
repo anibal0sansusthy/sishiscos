@@ -1,0 +1,33 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/usuario/navusuarioop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Crear Usuario'
+
+      div(class='form-nuevousuario')
+        form(class=['ui', 'form'] action='/crearusuario' method='post')
+          div(class=['ui', 'field'])
+            label(for='nombreusuario')= 'Cuenta '
+            input(type= 'text' name='nombreusuario' placeholder='Cuenta' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+            label(for='password')= 'Contrasena'
+            input(type= 'password' name='password' placeholder='Contrasena' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+            label(for='matricula')= 'Matricula'
+            select(id='matriculaid' name='dropdownmatricula')
+          button(class=['ui', 'button', 'large', 'blue'])= 'Crear Usuario'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Usuario registrado'
+          p= info
+
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/cargarMatriculaUsuario.js')

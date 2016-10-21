@@ -1,0 +1,32 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/reportes/navreportesop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue','centered','form-head'])= 'Reporte Especialidad'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-productos')
+        thead
+          tr
+            th= 'Fecha Inicio'
+            th= 'Fecha Fin'
+            th= 'Especialidad'
+            th= 'Pacientes atendidos'
+            th= 'Porcentaje %'
+            th= 'Total atendidos'
+            
+            
+        tbody
+          
+            tr
+              td= enviar.fechainicio
+              td= enviar.fechafin
+              td= enviar.especialidades
+              td= enviar.cantidad
+              td= enviar.porcentaje
+              td= enviar.total
+              

@@ -1,0 +1,42 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/paciente/navpacienteop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Lista de Pacientes'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-pacientes')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Paterno'
+            th= 'Materno'
+            th= 'Matricula'
+            th= 'Grado'
+            th= 'Fuerza'
+            th= 'Tipo'
+            th= 'Acciones'
+            
+        tbody
+          each paciente in pacientes
+            tr
+              td(id='id')=paciente.id_asegurado
+              td= paciente.nombre
+              td= paciente.apaterno
+              td= paciente.amaterno
+              td= paciente.matricula
+              td= paciente.grado
+              td= paciente.fuerza
+              td= paciente.tipo_asegurado
+              td
+                a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['remove circle icon'])
+                a(class=['ui button basic icon'] href='/modificarpaciente/'+paciente.id_asegurado data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/pacientes.js')

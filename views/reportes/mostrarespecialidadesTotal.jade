@@ -1,0 +1,69 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/reportes/navreportesop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Reporte Especialidad'
+      div(class=['ui','field'])
+        label(for='fechainicio')= 'Fecha Inicio: '
+        label(for='fechainicio')= value=fecha1
+      div(class=['ui','field'])
+        label(for='fechafin')= 'Fecha Fin: '
+        label(for='fechafin')= value=fecha2
+      table(class=['ui', 'table', 'celled'] id='tbl-productos')
+        thead
+          tr
+            th= 'Especialidad'
+            th= 'Pacientes atendidos'
+            
+            
+            
+        tbody
+          
+            tr 
+              td=esp[0].nombre
+              td=valor[0]
+            tr
+              td=esp[1].nombre
+              td=valor[1]
+            tr
+              td=esp[2].nombre
+              td=valor[2]
+            tr
+              td=esp[3].nombre
+              td=valor[3]  
+            tr
+              td=esp[4].nombre
+              td=valor[4]
+            tr
+              td=esp[5].nombre
+              td=valor[5]
+            tr
+              td=esp[6].nombre
+              td=valor[6]
+            tr
+              td=esp[7].nombre
+              td=valor[7]
+            tr
+              td=esp[8].nombre
+              td=valor[8]
+            tr
+              td=esp[9].nombre
+              td=valor[9]
+            tr
+              td=esp[10].nombre
+              td=valor[10]
+            tr
+              td=esp[11].nombre
+              td=valor[11]
+            tr
+              td=esp[12].nombre
+              td=valor[12]
+            tr
+              td=esp[13].nombre
+              td=valor[13]
+              

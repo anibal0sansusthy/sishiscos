@@ -1,0 +1,31 @@
+body {
+    background: url(images/inicio.jpg) fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+  }
+
+  .form-holder {
+      background: rgba(0, 0, 0, 0.05);
+      margin-top: 5%;
+      border-radius: 3px;
+    }
+
+  .form-head {
+      font-size: 30px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 0 30px #000;
+      margin: 15px auto 30px auto;
+    }
+
+ .banner{
+   background: url("/images/inicio1.jpg") fixed;
+   background-position:top center;
+   background-size: 1400px 650px;
+   background-repeat: no-repeat;
+   color:white;
+   height:650px ;  
+   
+ }

@@ -1,0 +1,42 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/especialidad/navespecialidadop
+  script.
+    function soloLetras(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ';
+    especiales = '8-37-39-46';
+    tecla_especial = false
+      for(var i in especiales){
+        if(key == especiales[i]){
+          tecla_especial = true;
+      break;
+        }
+      }
+    if(letras.indexOf(tecla)==-1 && !tecla_especial){
+    return false;
+    }
+    }
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Modificar Especialidad'
+
+      div(class='form-nuevocargo')
+        form(class=['ui', 'form'] action='/editarespecialidad' method='post')
+          div(class=['ui', 'field'])
+            label(for='nombreespecialidad')= 'Nombre Especialidad'
+            input(type= 'text' name='nombreespecialidad' placeholder='Nombre Especialidad' value=especialidad[0].nombre onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+            label(for='descripcionespecialidad')= 'Descripcion'
+            input(type= 'text' name='descripcionespecialidad' placeholder='Descripcion' value=especialidad[0].descripcion onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+            input(type= 'hidden' name='id_especialidad' value=especialidad[0].id_especialidad)
+          button(class=['ui', 'button', 'large', 'blue'])= 'Modificar Especialidad'
+          div(class=['ui', 'message', 'error'])
+
+      
+  script(src='/javascripts/validacion.js')

@@ -1,0 +1,34 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/medico/navmedicoop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Lista de Medicos'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-medicos')
+        thead
+          tr
+            th= 'ID'
+            th= 'Paterno'
+            th= 'Materno'
+            th= 'Especialidad'
+            th= 'Acciones'
+            
+        tbody
+          each medico in medicos
+            tr
+              td(id='id')= medico.id_medico
+              td= medico.apaterno
+              td= medico.amaterno
+              td= medico.nombre
+              td
+                a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['remove circle icon'])
+                a(class=['ui button basic icon'] href='/modificarmedico/'+medico.id_medico data-inverted='' data-tooltip='Modificar' data-position='top center')
+                  i(class=['edit icon'])
+
+  script(src='/javascripts/medico.js')

@@ -1,0 +1,15 @@
+extends templates/default
+
+block content
+
+  include templates/historias/navRegistro
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column'])
+
+      h3(class=['ui', 'header', 'blue'])= 'MENSAJE'
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Historial registrado'
+          p= info

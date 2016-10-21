@@ -1,0 +1,54 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/paciente/navpacienteop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Crear Paciente'
+
+      div(class='form-nuevoasegurado')
+        form(class=['ui', 'form'] action='/crearpaciente' method='post')
+          div(class=['ui', 'field'])
+            label(for='matriculapersona')= 'Matricula '
+            select(id="matriculaId" name = "dropdownmatricula")
+          div(class=['ui', 'field'])
+            label(for='gradoasegurado')= 'Grado'
+            select(name = "dropdowngrado")
+              option(value="GRAL") GRAL
+              option(value="CNL") CNL
+              option(value="TCNL") TCNL
+              option(value="MY") MY
+              option(value="CAP") CAP
+              option(value="TTE") TTE
+              option(value="SBTTE") SBTTE
+              option(value="APADI") APADI
+              option(value="APADII") APADII
+              option(value="APADIII") APADIII
+              option(value="OTROS") OTROS
+          div(class=['ui', 'field'])
+            label(for='fuerzaasegurado')= 'Fuerza'
+            select(name = "dropdownfuerza")
+              option(value="EJERCITO") EJERCITO
+              option(value="ARMADA") ARMADA
+              option(value="FAB") FAB
+              
+          div(class=['ui', 'field'])
+            label(for='tipo_asegurado')= 'Tipo'
+            select(name = "dropdowntipo")
+              option(value="ACTIVO") ACTIVO
+              option(value="PASIVO") PASIVO
+              
+          button(class=['ui', 'button', 'large', 'blue'])= 'Crear Paciente'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Paciente registrada'
+          p= info
+
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/cargarMatriculaPaciente.js')

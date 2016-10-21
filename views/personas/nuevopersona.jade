@@ -1,0 +1,58 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/persona/navpersonaop
+  script.
+    function soloLetras(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ';
+    especiales = '8-37-39-46';
+    tecla_especial = false
+      for(var i in especiales){
+        if(key == especiales[i]){
+          tecla_especial = true;
+      break;
+        }
+      }
+    if(letras.indexOf(tecla)==-1 && !tecla_especial){
+    return false;
+    }
+    }
+    
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header','centered', 'blue', 'dividing','form-head'])= 'Crear Persona'
+
+      div(class='form-nuevopersona')
+        form(class=['ui', 'form'] action='/crearpersona' method='post')
+          div(class=['ui', 'field'])
+            label(for='nombrepersona')= 'Nombre '
+            input(type= 'text' name='nombrepersona' placeholder='Nombre' onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+            label(for='apaternopersona')= 'Apellido Paterno'
+            input(type= 'text' name='apaternopersona' placeholder='A Paterno' onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+            label(for='amaternopersona')= 'Apellido Materno'
+            input(type= 'text' name='amaternopersona' placeholder='Apellido Materno' onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+            label(for='cipersona')= 'CI'
+            input(type= 'number' name='cipersona' placeholder='CI')
+          div(class=['ui', 'field'])
+            label(for='fecha_nacpersona')= 'Fecha Nacimiento'
+            input(type= 'date' name='fecha_nacpersona' placeholder='Fecha Nacimiento')
+          div(class=['ui', 'field'])
+            label(for='matriculapersona')= 'Matricula'
+            input(type= 'text' name='matriculapersona' placeholder='Matricula')
+          button(class=['ui', 'button', 'large', 'blue'])= 'Crear Persona'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Persona registrada'
+          p= info
+
+  script(src='/javascripts/validacion.js')

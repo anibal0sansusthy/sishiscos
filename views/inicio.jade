@@ -1,0 +1,20 @@
+extends templates/default
+
+block content
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column'])
+       h1(class=['ui', 'header','centered', 'form-head','blue'])= 'HOSPITAL MILITAR Nro 1 COCHABAMBA'
+        div(class=['ui','three','medium','images'])
+          div(class=['ui','medium','image'])
+            img(src='/images/citamedica.jpg')
+            a(class=['ui button large blue'] href='https://ancient-temple-81861.herokuapp.com/login')= 'SISRECOS Ingresar'
+          div(class=['ui','medium','image'])
+            img(src='/images/historial.jpg')
+            a(class=['ui button large blue'] href='http://localhost:3000/login')= 'SISHICOS Ingresar'
+          div(class=['ui','medium','image'])
+            img(src='/images/farmacia1.png')
+            a(class=['ui button large blue'] href='http://localhost/grover1/public/auth/login')= 'SISFARCOS Ingresar'
+            
+          
+          

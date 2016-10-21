@@ -1,0 +1,58 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/paciente/navpacienteop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Modificar Paciente'
+
+      div(class='form-nuevopaciente')
+        form(class=['ui', 'form'] action='/editarpaciente' method='post')
+          div(class=['ui','disabled','field'])
+            label(for='nombrepersona')= 'Nombre'
+            input(type= 'text' name='nombrepersona' placeholder='Nombre' value=pacientes[0].nombre)
+          div(class=['ui','disabled', 'field'])
+            label(for='apaternopersona')= 'Ap Paterno'
+            input(type= 'text' name='apaternopersona' placeholder='Ap Paterno' value=pacientes[0].apaterno)
+          div(class=['ui','disabled', 'field'])
+            label(for='amaternopersona')= 'Ap Materno'
+            input(type= 'text' name='amaternopersona' placeholder='Ap Materno' value=pacientes[0].amaterno)
+          div(class=['ui','disabled', 'field'])
+            label(for='matriculapersona')= 'Matricula'
+            input(type= 'text' name='matriculapersona' placeholder='Matricula' value=pacientes[0].matricula)
+           div(class=['ui', 'field'])
+            label(for='gradoasegurado')= 'Grado'
+            select(name = "dropdowngrado")
+              option(value="GRAL") GRAL
+              option(value="CNL") CNL
+              option(value="TCNL") TCNL
+              option(value="MY") MY
+              option(value="CAP") CAP
+              option(value="TTE") TTE
+              option(value="SBTTE") SBTTE
+              option(value="APADI") APADI
+              option(value="APADII") APADII
+              option(value="APADIII") APADIII
+              option(value="OTROS") OTROS
+          div(class=['ui', 'field'])
+            label(for='fuerzaasegurado')= 'Fuerza'
+            select(name = "dropdownfuerza")
+              option(value="EJERCITO") EJERCITO
+              option(value="ARMADA") ARMADA
+              option(value="FAB") FAB
+          div(class=['ui', 'field'])
+            label(for='tipo_asegurado')= 'Tipo'
+            select(name = "dropdowntipo")
+              option(value="ACTIVO") ACTIVO
+              option(value="PASIVO") PASIVO
+              
+          div(class=['ui', 'field'])
+            input(type= 'hidden' name='id_asegurado' value=pacientes[0].id_asegurado)
+          button(class=['ui', 'button', 'basic', 'black'])= 'Modificar Paciente'
+          div(class=['ui', 'message', 'error'])
+
+      
+  script(src='/javascripts/validacion.js')

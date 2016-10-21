@@ -1,0 +1,25 @@
+extends ../templates/default
+
+block content
+  include ../templates/historias/navhistoriasverconsultas
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Lista de Historias'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-historias')
+        thead
+          tr
+            th= 'NRO FICHA'
+            th= 'APELLIDO'
+            th= 'MATRICULA'
+            th= 'ACCIONES'
+        tbody
+          each historia in idasegurados
+            tr
+              td= historia.nro
+              td=historia.apaterno
+              td(id='matricula')=historia.matricula
+              td
+                a(class=['ui button basic icon'] href='/nuevohistoria/'+historia.matricula data-inverted='' data-tooltip='Ver' data-position='top center')
+                  i(class=['unhide icon'])

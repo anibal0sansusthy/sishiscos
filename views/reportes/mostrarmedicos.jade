@@ -1,0 +1,52 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/reportes/navreportesop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['sixteen', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'TABLA DE CANTIDAD DE ATENDIDOS POR MEDICO'
+      div(class=['ui','field'])
+        label(for='fechainicio')= 'Fecha Inicio: '
+        label(for='fechainicio')= value=fecha1
+      div(class=['ui','field'])
+        label(for='fechafin')= 'Fecha Fin: '
+        label(for='fechafin')= value=fecha2
+      table(class=['ui', 'table', 'celled'] id='tbl-edadesunidades')
+        thead
+          tr
+            
+            th= 'NOMBRE'
+            th= 'PATERNO'
+            th= 'MATERNO'
+            th= 'Total Atendidos'
+            
+        tbody
+         
+            tr
+              td= datosM.nombre1
+              td= datosM.paterno1
+              td= datosM.materno1
+              td= cantidadM.c1
+            tr
+              td= datosM.nombre2
+              td= datosM.paterno2
+              td= datosM.materno2
+              td= cantidadM.c2
+              
+            tr
+              td= datosM.nombre3
+              td= datosM.paterno3
+              td= datosM.materno3
+              td= cantidadM.c3
+            
+            tr
+              td= datosM.nombre4
+              td= datosM.paterno4
+              td= datosM.materno4
+              td= cantidadM.c4
+              
+           
+                

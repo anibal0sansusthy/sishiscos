@@ -1,0 +1,43 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/cargo/navcargoop
+  script.
+    function soloLetras(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ';
+    especiales = '8-37-39-46';
+    tecla_especial = false
+      for(var i in especiales){
+        if(key == especiales[i]){
+          tecla_especial = true;
+      break;
+        }
+      }
+    if(letras.indexOf(tecla)==-1 && !tecla_especial){
+    return false;
+    }
+    }
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h2(class=['ui', 'header','centered', 'blue', 'dividing','form-head'])= 'Modificar Cargo'
+
+      div(class='form-nuevocargo')
+        form(class=['ui', 'form'] action='http://localhost:3000/editar' method='post')
+          div(class=['ui', 'field'])
+            label(for='nombrecargo')= 'Nombre del cargo'
+            input(type= 'text' name='nombrecargo' placeholder='Nombrecargo' value=cargo[0].nombre onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'two', 'fields'])
+            div(class=['ui', 'field'])
+              label(for='responsabilidadcargo')= 'Responsabilidadcargo'
+              input(type= 'text' name='responsabilidadcargo' placeholder='Responsabilidadcargo' value=cargo[0].responsabilidad onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+            div(class=['ui', 'field'])
+              input(type= 'hidden' name='id_cargo' value=cargo[0].id)
+          button(class=['ui', 'button', 'large', 'blue'])= 'Modificar Cargo'
+          div(class=['ui', 'message', 'error'])
+
+      
+  script(src='/javascripts/validacion.js')

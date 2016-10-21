@@ -1,0 +1,33 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/empleado/navempleadoop
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+      
+      h2(class=['ui', 'header', 'blue', 'dividing','centered','form-head'])= 'Crear Empleado'
+
+      div(class='form-nuevoempleado')
+        form(class=['ui', 'form'] action='/crearempleado' method='post')
+          div(class=['ui', 'field'])
+            label(for='matriculapersona')= 'Matricula '
+            select(id="matriculaId" name = "dropdownmatricula")
+          div(class=['ui', 'field'])
+            label(for='cargoempleado')= 'Cargo'
+            select(id="cargoId" name = "dropdown")
+              
+          button(class=['ui', 'button', 'large', 'blue'])= 'Crear Empleado'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Empleado registrado'
+          p= info
+
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/cargarCargo.js')
+  script(src='/javascripts/cargarMatriculaEmpleado.js')
+  

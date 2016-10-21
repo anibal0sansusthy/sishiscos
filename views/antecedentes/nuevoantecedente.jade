@@ -1,0 +1,109 @@
+extends ../templates/default
+
+block content
+
+  include ../templates/cargo/navcargoop
+  script.
+    function soloLetras(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ';
+    especiales = '8-37-39-46';
+    tecla_especial = false
+      for(var i in especiales){
+        if(key == especiales[i]){
+          tecla_especial = true;
+      break;
+        }
+      }
+    if(letras.indexOf(tecla)==-1 && !tecla_especial){
+    return false;
+    }
+    }
+  
+  div(class=['ui', 'container', 'grid', 'stackable','banner'])
+    div(class=['ten', 'wide', 'column','form-holder'])
+
+      h1(class=['ui','centered', 'header','form-head', 'blue', 'dividing'])= 'Crear Antecedentes Clinicos'
+
+      div(class='form-nuevocargo')
+        form(class=['ui', 'form'] action='/crearantecedente' method='post')
+          div(class=['ui', 'field'])
+              label(for='matriculaP')= 'Matricula Paciente'
+              input(type= 'text' name='matriculaP' placeholder='matricula' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui', 'field'])
+              label(for='matriculaM')= 'Matricula Medico'
+              input(type= 'text' name='matriculaM' placeholder='matricula' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          div(class=['ui','four', 'field'])
+            h1(class=['ui','centered', 'header','form-head', 'blue', 'dividing'])= 'Antecedentes Familiares'
+            div(class=['ui', 'field'])
+              label(for='diabetes')= 'Diabetes'
+              select(name = "dropdowndiabetes")
+                option(value="PADRE") PADRE
+                option(value="MADRE") MADRE
+                option(value="HERMANOS") HERMANOS
+                option(value="NINGUNO") NINGUNO
+            div(class=['ui', 'field'])
+              
+              label(for='enf_cardiaca')= 'Obecidad'
+              select(name = "dropdownobecidad")
+                option(value="PADRE") PADRE
+                option(value="MADRE") MADRE
+                option(value="HERMANOS") HERMANOS
+                option(value="NINGUNO") NINGUNO 
+            div(class=['ui', 'field'])
+              
+              label(for='enfCardiaca')= 'Enfermedad Cardiaca'
+              select(name = "dropdowncardo")
+                option(value="PADRE") PADRE
+                option(value="MADRE") MADRE
+                option(value="HERMANOS") HERMANOS
+                option(value="NINGUNO") NINGUNO 
+            div(class=['ui', 'field'])
+              
+              label(for='epilepcia')= 'Epilepcia'
+              select(name = "dropdownepi")
+                option(value="PADRE") PADRE
+                option(value="MADRE") MADRE
+                option(value="HERMANOS") HERMANOS
+                option(value="NINGUNO") NINGUNO 
+          div(class=['ui','three', 'field'])
+            h1(class=['ui','centered', 'header','form-head', 'blue', 'dividing'])= 'Antecedente No Patologicos'
+            div(class=['ui', 'field'])
+              label(for='alergias')= 'Alergias'
+              input(type= 'text' name='alergias' placeholder='Alergias' onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+            div(class=['ui', 'field'])
+              
+              label(for='tabaquismo')= 'Tabaquismo'
+              select(name = "dropdowntab")
+                option(value="FRECUENTEMENTE") FRECUENTEMENTE
+                option(value="OCACIONALMENTE") OCACIONALMENTE
+                option(value="NUNCA") NUNCA
+            div(class=['ui', 'field'])
+              
+              label(for='alcoholismo')= 'Alcoholismo'
+              select(name = "dropdownalcohol")
+                option(value="FRECUENTEMENTE") FRECUENTEMENTE
+                option(value="OCACIONALMENTE") OCACIONALMENTE
+                option(value="NUNCA") NUNCA   
+          div(class=['ui', 'field'])
+            h1(class=['ui','centered', 'header','form-head', 'blue', 'dividing'])= 'Antecedente Patologicos'
+            div(class=['ui', 'field'])
+              label(for='fracturas')= 'fracturas'
+              input(type= 'text' name='fracturas' placeholder='fracturas' onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+            div(class=['ui', 'field'])
+              label(for='cirugias')= 'Cirugias'
+              input(type= 'text' name='cirugias' placeholder='cirugias' onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+            div(class=['ui', 'field'])
+              label(for='hospitalizaciones')= 'Hospitalizaciones'
+              input(type= 'text' name='hospitalizaciones' placeholder='hospitalizaciones' onkeypress='return soloLetras(event)' onkeyup="javascript:this.value=this.value.toUpperCase();")
+          button(class=['ui', 'button', 'large', 'blue'])= 'Crear Antecedente Clinico'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Cargo registrado'
+          p= info
+
+  script(src='/javascripts/validacioncargo.js')
